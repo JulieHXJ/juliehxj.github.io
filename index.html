@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Julie | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    :root {
+      --primary: #0f6b78;
+      --sidebar-bg: #12343b;
+      --accent: #2ca6a4;
+      --text-main: #2b2b2b;
+      --text-secondary: #6b7280;
+      --surface: #ffffff;
+      --background: #f8f9fa;
+      --divider: #e5e7eb;
+      --sidebar-width: 320px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: var(--background);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: var(--sidebar-bg);
+      color: #fff;
+      padding: 2.2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .profile-image {
+      width: 145px;
+      height: 145px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+      margin-bottom: 1rem;
+    }
+
+    .sidebar h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.95rem;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+      letter-spacing: 0.01em;
+    }
+
+    .sidebar .tagline {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.92rem;
+      margin-bottom: 1.6rem;
+      text-align: center;
+    }
+
+    .sidebar-nav {
+      width: 100%;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border-radius: 8px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.88);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: rgba(44, 166, 164, 0.2);
+      color: #fff;
+    }
+
+    .social-links {
+      margin-top: auto;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .mobile-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--sidebar-bg);
+      color: #fff;
+      display: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1rem;
+    }
+
+    .mobile-brand {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .menu-btn {
+      border: none;
+      background: transparent;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.3rem 0.4rem;
+    }
+
+    .mobile-nav-links {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      background: #0f2f35;
+    }
+
+    .mobile-nav-links.open {
+      max-height: 420px;
+    }
+
+    .mobile-nav-links a {
+      padding: 0.8rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.93);
+    }
+
+    .mobile-nav-links .mobile-social {
+      display: flex;
+      gap: 0.8rem;
+      padding: 0.9rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .main {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+      background: var(--surface);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 1.2rem 2.4rem 3rem;
+    }
+
+    section {
+      padding: 4.2rem 0;
+      border-bottom: 1px solid var(--divider);
+      scroll-margin-top: 72px;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .subheading {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      max-width: 72ch;
+    }
+
+    .meta-list {
+      margin-top: 1.2rem;
+      display: grid;
+      gap: 0.55rem;
+      font-size: 0.96rem;
+    }
+
+    .meta-list strong,
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .entry {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.3rem;
+      border-bottom: 1px dashed var(--divider);
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .entry h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .entry .muted {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .entry ul {
+      padding-left: 1.1rem;
+      color: #3d4451;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card,
+    .project-card {
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 1rem;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(19, 52, 59, 0.06);
+    }
+
+    .skill-card h3 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      list-style: none;
+    }
+
+    .tag-list li {
+      font-size: 0.86rem;
+      border: 1px solid #cdd7da;
+      background: #f3f7f8;
+      color: #29454b;
+      padding: 0.26rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.4rem;
+      color: #1e2a2d;
+    }
+
+    .stack {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin: 0.6rem 0 0.85rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.9rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .project-links a {
+      color: var(--primary);
+    }
+
+    .project-links a:hover {
+      color: var(--accent);
+    }
+
+    .interest-note {
+      max-width: 68ch;
+      color: #39424e;
+    }
+
+    .accent-link {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .accent-link:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 980px) {
+      .main {
+        margin-left: 0;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: block;
+      }
+
+      .container {
+        padding: 0 1.2rem 2.2rem;
+      }
+
+      section {
+        padding: 3.4rem 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .project-grid,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: clamp(1.8rem, 10vw, 2.45rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <img
+      class="profile-image"
+      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
+      alt="Portrait of Xiaojun Julie Huang"
+    />
+    <h1>Xiaojun  Huang</h1>
+    <p class="tagline">Software Engineering @42 Heilbronn  Information Systems @THA </p>
+
+    <nav class="sidebar-nav" aria-label="Sidebar navigation">
+      <ul>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <!-- <li><a class="nav-link" href="#experience">Experience</a></li> -->
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#interests">Interests</a></li>
+      </ul>
+    </nav>
+
+    <div class="social-links" aria-label="Social media links">
+      <a href="https://github.com/JulieHXJ" target="_blank" rel="noreferrer" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/xhuang-91656623a/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="mailto:juliehxj@outlook.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </aside>
+
+  <header class="mobile-nav">
+    <div class="mobile-nav-header">
+      <div class="mobile-brand">Xiaojun Huang</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links" id="mobileMenu" aria-label="Mobile navigation">
+      <a class="mobile-link" href="#about">About</a>
+      <!-- <a class="mobile-link" href="#experience">Experience</a> -->
+      <a class="mobile-link" href="#education">Education</a>
+      <a class="mobile-link" href="#skills">Skills</a>
+      <a class="mobile-link" href="#projects">Projects</a>
+      <a class="mobile-link" href="#interests">Interests</a>
+      <div class="mobile-social">
+        <a href="https://github.com/JulieHXJ" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/xhuang-91656623a/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:juliehxj@outlook.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <section id="about">
+        <!-- <p class="section-title">About</p> -->
+        <h2 class="hero-title">Xiaojun (Julie) Huang </h2>
+        <!-- <p class="subheading">Software Engineering Student | Information System Student</p> -->
+        <p class="lead">
+          Hi there! Welcome to my personal page. I’m Julie — a software engineering student based in Germany, currently studying at 42 Heilbronn and
+          exploring Information Systems at THA. 
+        </p>
+        <!-- <div class="meta-list">
+          <div><strong>Location:</strong> Heilbronn, Germany</div>
+          <div><strong>Email:</strong> <a class="accent-link" href="mailto:juliehxj@outlook.com">juliehxj@outlook.com</a></div>
+          <div>
+            <strong>Profiles:</strong>
+            <a class="accent-link" href="https://github.com/JulieHXJ" target="_blank" rel="noreferrer">GitHub</a>
+            /
+            <a class="accent-link" href="https://www.linkedin.com/in/xhuang-91656623a/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div> -->
+      </section>
+
+      <!-- <section id="experience">
+          <p class="section-title">Experience</p>
+          <article class="entry">
+              <h3>AI Tooling Project Contributor</h3>
+              <p class="muted"><span class="highlight">2025 - Present</span> | Student Project Team</p>
+              <ul>
+                  <li>Implemented backend APIs for tool orchestration and prompt-based workflows.</li>
+                  <li>Improved reliability through structured logging and better error handling strategies.</li>
+                  <li>Collaborated on repository standards, code reviews, and iterative deployment.</li>
+                </ul>
+            </article>
+            
+            <article class="entry">
+                <h3>Systems and C/C++ Practice Projects</h3>
+                <p class="muted"><span class="highlight">2024 - 2026</span> | Academic Portfolio</p>
+                <ul>
+                    <li>Built command-line utilities and object-oriented C++ modules in staged exercises.</li>
+                    <li>Practiced memory management, clean abstractions, and Unix development fundamentals.</li>
+                    <li>Used Makefiles and structured testing to maintain reproducible builds.</li>
+                </ul>
+            </article>
+        </section> -->
+        
+        <section id="education">
+          <p class="section-title">Education</p>
+          <article class="entry">
+          <h3>42 Heilbronn | Software Engineering Program</h3>
+          <p class="muted"><span class="highlight">2024 - Present</span> | Heilbronn, Germany</p>
+          <p>
+            Project-based software engineering program focused on systems programming, algorithms, problem solving,
+            peer learning, and collaborative development.
+          </p>
+        </article>
+
+           <article class="entry">
+          <h3>Technische Hochschule Augsburg | B.Sc. International Information Systems</h3>
+          <p class="muted"><span class="highlight">2024 - Present</span> | Augsburg, Germany</p>
+          <p>
+            Academic studies in information systems with an interdisciplinary perspective connecting technology,
+            business processes, and digital systems.
+          </p>
+        </article>
+
+           <article class="entry">
+            <h3>University of York| M.A. Music Production</h3>
+            <p class="muted"><span class="highlight">2015 - 2017</span> | York, United Kingdom</p>
+            <!-- <p>
+              Project-based intensive curriculum covering systems programming, algorithms, software architecture, and
+              collaborative engineering workflows.
+            </p> -->
+          </article>
+
+
+          <article class="entry">
+            <h3>Shanghai Normal University| B.A. Music Technology</h3>
+            <p class="muted"><span class="highlight">2011 - 2015</span> | Shanghai, China</p>
+            <!-- <p>
+              Project-based intensive curriculum covering systems programming, algorithms, software architecture, and
+              collaborative engineering workflows.
+            </p> -->
+          </article>
+        </section>
+
+      <section id="skills">
+        <p class="section-title">Skills</p>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <h3>Languages</h3>
+            <ul class="tag-list">
+              <li>C</li>
+              <li>C++</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>SQL</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3>Tools & Tech</h3>
+            <ul class="tag-list">
+              <li>Git & GitHub</li>
+              <li>Linux</li>
+              <li>Docker</li>
+              <li>REST APIs</li>
+              <li>PostgreSQL</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3>What I Enjoy</h3>
+            <ul class="tag-list">
+              <li>Backend Development</li>
+              <li>Systems Thinking</li>
+              <li>Debugging</li>
+              <li>Documentation</li>
+              <li>AI Tool Prototyping</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+     <section id="projects">
+  <p class="section-title">Projects</p>
+  <div class="project-grid">
+    <article class="project-card">
+      <h3>Event-Driven Pet Health Tracking & Risk Modeling System</h3>
+      <p>
+        Designed a long-term pet health tracking system that separates raw health records from derived insights,
+        making the data easier to organize, analyze, and extend toward future ML-based risk prediction.
+      </p>
+      <p class="stack">Tech: Python, SQLite, CLI, JSON, Rule-Based Risk Modeling</p>
+      <div class="project-links">
+        <a href="https://github.com/JulieHXJ/PawsonalCare" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <h3>MarketMirror – AI Hackathon Project</h3>
+      <p>
+        Contributed to an AI-assisted website evaluation tool that captures webpage evidence, structures the data,
+        and feeds it into an AI reasoning workflow to generate feedback for early-stage product teams.
+      </p>
+      <p class="stack">Tech: Python, Web Automation, Screenshot Capture, Structured Extraction, AI Workflow</p>
+      <div class="project-links">
+        <a href="https://github.com/JulieHXJ/MarketMirror" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <h3>IRC-Compliant Server</h3>
+      <p>
+        Built a multi-client IRC server in C++ with support for user authentication, public and private channels,
+        and real-time message broadcasting using non-blocking network I/O.
+      </p>
+      <p class="stack">Tech: C++, Sockets, poll/epoll, TCP/IP, Concurrency</p>
+      <div class="project-links">
+        <a href="https://github.com/JulieHXJ/ft_irc42" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <h3>UNIX Shell</h3>
+      <p>
+        Created a minimal shell in C supporting command execution, pipes, redirections, and environment variables,
+        with a strong focus on process control, debugging, and memory safety.
+      </p>
+      <p class="stack">Tech: C, fork, execve, dup2, pipe, Signals, GDB, Valgrind</p>
+      <div class="project-links">
+        <a href="https://github.com/JulieHXJ" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+      <section id="interests">
+        <p class="section-title">Interests</p>
+        <p class="interest-note">
+          Outside coding, I enjoy reading about product strategy, walking city trails, and exploring how design and
+          engineering can work together to build calm, useful digital experiences.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+    const sections = document.querySelectorAll("main section");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+      const expanded = mobileMenu.classList.contains("open");
+      menuBtn.setAttribute("aria-expanded", String(expanded));
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const id = entry.target.getAttribute("id");
+
+          navLinks.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+          });
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>

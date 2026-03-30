@@ -246,10 +246,26 @@
       margin-bottom: 0.5rem;
     }
 
+    /* .subheading {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    } */
+
     .subheading {
       color: var(--text-secondary);
       font-size: 0.98rem;
       margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .inline-link {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .inline-link:hover {
+      color: var(--accent);
     }
 
     .lead {
@@ -395,7 +411,7 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1rem;
     }
-    
+
     .stack {
       color: var(--text-secondary);
       font-size: 0.9rem;
@@ -544,9 +560,18 @@
       <section id="about">
         <!-- <p class="section-title">About</p> -->
         <h2 class="hero-title">Xiaojun (Julie) Huang </h2>
-        <p class="subheading">Software Engineering | Information Systems | Open to Internships </p>
+    
+
+
+         <p class="subheading">
+          <a class="inline-link" href="mailto:juliehxj@outlook.com">Email</a> |
+          <a class="inline-link" href="https://github.com/JulieHXJ" target="_blank" rel="noreferrer">GitHub</a> |
+          <a class="inline-link" href="https://de.linkedin.com/in/xhuang-91656623a" target="_blank" rel="noreferrer">LinkedIn</a> |
+          Heilbronn, Germany |
+          Open to Internships
+        </p>
         <p class="lead lead-compact">
-          🎓 42 Heilbronn + TH Augsburg<br>
+          🎓 Software Engineering @42 Heilbronn + Information Systems @TH Augsburg<br>
           🎵 Formerly in music<br>
           💻 Currently building systems, tools, and practical AI
         </p>

@@ -89,9 +89,11 @@
 
     .sidebar .tagline {
       color: rgba(255, 255, 255, 0.8);
-      font-size: 0.92rem;
-      margin-bottom: 1.6rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin-bottom: 1.4rem;
       text-align: center;
+      max-width: 24ch;
     }
 
     .sidebar-nav {
@@ -253,6 +255,18 @@
     .lead {
       max-width: 72ch;
     }
+    .lead-compact {
+      font-size: 1.02rem;
+      color: #39424e;
+      line-height: 1.9;
+    }
+
+    .group-title {
+      font-size: 1rem;
+      color: var(--primary);
+      margin: 1.2rem 0 0.9rem;
+      letter-spacing: 0.02em;
+    }
 
     .meta-list {
       margin-top: 1.2rem;
@@ -312,6 +326,17 @@
       box-shadow: 0 8px 22px rgba(19, 52, 59, 0.06);
     }
 
+    .project-card p {
+      font-size: 0.96rem;
+      color: #39424e;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.45rem;
+      color: #1e2a2d;
+      line-height: 1.35;
+    }
+
     .skill-card h3 {
       font-size: 0.95rem;
       text-transform: uppercase;
@@ -338,14 +363,14 @@
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1rem;
     }
 
-    .project-card h3 {
+    /* .project-card h3 {
       margin-bottom: 0.4rem;
       color: #1e2a2d;
-    }
+    } */
 
     .stack {
       color: var(--text-secondary);
@@ -368,9 +393,21 @@
       color: var(--accent);
     }
 
-    .interest-note {
-      max-width: 68ch;
+    .interest-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      max-width: 70ch;
+    }
+
+    .interest-list li {
       color: #39424e;
+      padding-left: 0;
+    }
+
+    .interest-list strong {
+      color: var(--primary);
+      font-weight: 600;
     }
 
     .accent-link {
@@ -424,7 +461,7 @@
       alt="Portrait of Xiaojun Julie Huang"
     />
     <h1>Xiaojun  Huang</h1>
-    <p class="tagline">Software Engineering @42 Heilbronn  Information Systems @THA </p>
+    <p class="tagline"><p class="tagline">42 Heilbronn · THA Information Systems · Systems, tools, and practical AI</p>
 
     <nav class="sidebar-nav" aria-label="Sidebar navigation">
       <ul>
@@ -483,10 +520,11 @@
       <section id="about">
         <!-- <p class="section-title">About</p> -->
         <h2 class="hero-title">Xiaojun (Julie) Huang </h2>
-        <!-- <p class="subheading">Software Engineering Student | Information System Student</p> -->
-        <p class="lead">
-          Hi there! Welcome to my personal page. I’m Julie — a software engineering student based in Germany, currently studying at 42 Heilbronn and
-          exploring Information Systems at THA. 
+        <p class="subheading">Software Engineering | Information Systems </p>
+        <p class="lead lead-compact">
+          🎓 42 Heilbronn + TH Augsburg<br>
+          🎵 Formerly in music<br>
+          💻 Now building systems, tools, and practical AI
         </p>
         <!-- <div class="meta-list">
           <div><strong>Location:</strong> Heilbronn, Germany</div>
@@ -544,7 +582,7 @@
         </article>
 
            <article class="entry">
-            <h3>University of York| M.A. Music Production</h3>
+            <h3>University of York | M.A. Music Production</h3>
             <p class="muted"><span class="highlight">2015 - 2017</span> | York, United Kingdom</p>
             <!-- <p>
               Project-based intensive curriculum covering systems programming, algorithms, software architecture, and
@@ -554,7 +592,7 @@
 
 
           <article class="entry">
-            <h3>Shanghai Normal University| B.A. Music Technology</h3>
+            <h3>Shanghai Normal University | B.A. Music Technology</h3>
             <p class="muted"><span class="highlight">2011 - 2015</span> | Shanghai, China</p>
             <!-- <p>
               Project-based intensive curriculum covering systems programming, algorithms, software architecture, and
@@ -564,14 +602,13 @@
         </section>
 
         
-        <section id="projects">
+        <!-- <section id="projects">
           <p class="section-title">Projects</p>
           <div class="project-grid">
             <article class="project-card">
               <h3>Event-Driven Pet Health Tracking & Risk Modeling System</h3>
               <p>
-                Designed a long-term pet health tracking system that separates raw health records from derived insights,
-                making the data easier to organize, analyze, and extend toward future ML-based risk prediction.
+                An event-driven pet health tracking concept inspired by my own shiba inu. What began as a personal need to make health notes more structured evolved into a project about patterns, signals, and better long-term care. The long-term vision includes AI-assisted insights built on real observations rather than guesswork.
               </p>
               <p class="stack">Tech: Python, SQLite, CLI, JSON, Rule-Based Risk Modeling</p>
               <div class="project-links">
@@ -615,6 +652,70 @@
               </div>
             </article>
           </div>
+        </section> -->
+        <section id="projects">
+          <p class="section-title">Projects</p>
+
+              <h3 class="group-title">Applied Ideas</h3>
+              <div class="project-grid">
+                <article class="project-card">
+                  <h3>PawsonalCare — Event-Driven Pet Health Tracking</h3>
+                  <p>
+                    Inspired by my shiba inu, this project turns scattered health notes into structured events, patterns, and future AI-assisted care insights.
+                  </p>
+                  <p class="stack">Python · SQLite · CLI · JSON · Rule-Based Risk Modeling</p>
+                  <div class="project-links">
+                    <a href="https://github.com/JulieHXJ/PawsonalCare" target="_blank" rel="noreferrer">Repository</a>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <h3>MarketMirror — AI Hackathon Project</h3>
+                  <p>
+                    An AI-assisted tool that captures webpage evidence, structures it, and generates feedback for early-stage product teams.
+                  </p>
+                  <p class="stack">Python · Web Automation · Screenshot Capture · Structured Extraction · AI Workflow</p>
+                  <div class="project-links">
+                    <a href="https://github.com/JulieHXJ/MarketMirror" target="_blank" rel="noreferrer">Repository</a>
+                  </div>
+                </article>
+              </div>
+
+          <h3 class="group-title">Systems & Foundations</h3>
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>miniRT</h3>
+              <p>
+                A small ray tracer in C that renders geometric objects with lighting, intersections, and camera-based scene construction.
+              </p>
+              <p class="stack">C · Ray Tracing · Linear Algebra · MiniLibX · Rendering</p>
+              <div class="project-links">
+                <a href="https://github.com/JulieHXJ/miniRT42" target="_blank" rel="noreferrer">Repository</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>IRC-Compliant Server</h3>
+              <p>
+                A multi-client IRC server in C++ with authentication, channels, and real-time communication using non-blocking I/O.
+              </p>
+              <p class="stack">C++ · Sockets · poll/epoll · TCP/IP · Concurrency</p>
+              <div class="project-links">
+                <a href="https://github.com/JulieHXJ/ft_irc42" target="_blank" rel="noreferrer">Repository</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>UNIX Shell</h3>
+              <p>
+                A minimal shell in C with pipes, redirections, environment handling, and a strong focus on process control and memory safety.
+              </p>
+              <p class="stack">C · fork · execve · dup2 · pipe · Signals · GDB · Valgrind</p>
+              <div class="project-links">
+                <a href="https://github.com/JulieHXJ/minishell42" target="_blank" rel="noreferrer">Repository</a>
+              </div>
+            </article>
+          </div>
         </section>
         
         <section id="skills">
@@ -632,7 +733,7 @@
             </article>
     
             <article class="skill-card">
-              <h3>Tools & Tech</h3>
+              <h3>Tools</h3>
               <ul class="tag-list">
                 <li>Git & GitHub</li>
                 <li>Linux</li>
@@ -643,13 +744,12 @@
             </article>
     
             <article class="skill-card">
-              <h3>What I Enjoy</h3>
+              <h3>Core Strengths</h3>
               <ul class="tag-list">
-                <li>Backend Development</li>
-                <li>Systems Thinking</li>
+                <li>Systems programming</li>
+                <li>Backend fundamentals</li>
                 <li>Debugging</li>
-                <li>Documentation</li>
-                <li>AI Tool Prototyping</li>
+                <li>Structured problem solving</li>
               </ul>
             </article>
           </div>
@@ -657,11 +757,13 @@
         
       <section id="interests">
         <p class="section-title">Interests</p>
-        <p class="interest-note">
-          Outside of coding, you’ll probably find me outdoors with my dog — hiking into the mountains or wandering through forests.
-          I also feel deeply connected to the sea, and I’m a certified AIDA 3 freediver. I value
-          calm, focus, and curiosity so much, both in life and in the way I build software.
-        </p>
+        <ul class="interest-list">
+          <li><strong>Clean code</strong> — clarity, structure, and readability</li>
+          <li><strong>Beautiful algorithms</strong> — solutions that feel elegant and satisfying</li>
+          <li><strong>Art & design</strong> — thoughtful, functional, and aesthetically right</li>
+          <li><strong>Gender equality</strong> — fairness, respect, and better spaces in tech</li>
+          <li><strong>Nature</strong> — forests, mountains, the sea, and long walks with my dog</li>
+        </ul>
       </section>
     </div>
   </main>

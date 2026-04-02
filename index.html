@@ -156,29 +156,66 @@
       background: var(--sidebar-bg);
       color: #fff;
       display: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     }
 
     .mobile-nav-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 1rem;
-    }
-
-    .mobile-brand {
-      font-family: "Source Serif 4", Georgia, serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.02em;
+       display: grid;
+        grid-template-columns: 52px 1fr 44px;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.75rem 1rem;
     }
 
     .menu-btn {
       border: none;
       background: transparent;
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       cursor: pointer;
-      padding: 0.3rem 0.4rem;
+      padding: 0.35rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: end;
+    }
+
+    .menu-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .mobile-identity {
+      min-width: 0;
+    }
+
+    .mobile-brand {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+
+    .mobile-tagline {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.78);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 0.12rem;
+    }
+
+    .mobile-profile-image {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      justify-self: start;
     }
 
     .mobile-nav-links {
@@ -191,21 +228,35 @@
     }
 
     .mobile-nav-links.open {
-      max-height: 420px;
+      max-height: 520px;
     }
 
     .mobile-nav-links a {
-      padding: 0.8rem 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.82rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.93);
+    }
+
+    .mobile-nav-links a:hover {
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .mobile-nav-links .mobile-social {
       display: flex;
       gap: 0.8rem;
-      padding: 0.9rem 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.95rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-social a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .main {
@@ -223,7 +274,7 @@
     section {
       padding: 4.2rem 0;
       border-bottom: 1px solid var(--divider);
-      scroll-margin-top: 72px;
+      scroll-margin-top: 90px;
     }
 
     section:last-of-type {
@@ -245,12 +296,6 @@
       line-height: 1.15;
       margin-bottom: 0.5rem;
     }
-
-    /* .subheading {
-      color: var(--text-secondary);
-      font-size: 0.98rem;
-      margin-bottom: 1rem;
-    } */
 
     .subheading {
       color: var(--text-secondary);
@@ -459,6 +504,39 @@
       color: var(--accent);
     }
 
+    .back-to-top {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(15, 107, 120, 0.28);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+      z-index: 40;
+    }
+
+    .back-to-top:hover {
+      background: var(--accent);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+
     @media (max-width: 980px) {
       .main {
         margin-left: 0;
@@ -473,11 +551,38 @@
       }
 
       .container {
-        padding: 0 1.2rem 2.2rem;
+        padding: 0 1.2rem 2.6rem;
       }
 
       section {
-        padding: 3.4rem 0;
+        padding: 3.2rem 0;
+        /* scroll-margin-top: 92px; */
+      }
+    }
+
+    @media (max-width: 560px) {
+      .mobile-nav-header {
+        grid-template-columns: 44px 1fr 42px;
+        gap: 0.65rem;
+        padding: 0.7rem 0.85rem;
+      }
+
+      .mobile-brand {
+        font-size: 1rem;
+      }
+
+      .mobile-tagline {
+        font-size: 0.72rem;
+      }
+
+      .mobile-profile-image {
+        width: 40px;
+        height: 40px;
+      }
+
+      .subheading {
+        font-size: 0.92rem;
+        line-height: 1.7;
       }
     }
 
@@ -501,7 +606,7 @@
       alt="Portrait of Xiaojun Julie Huang"
     />
     <h1>Xiaojun  Huang</h1>
-    <p class="tagline"><p class="tagline">42 Heilbronn · THA Information Systems · Systems, tools, and practical AI</p>
+    <p class="tagline">42 Heilbronn · THA Information Systems · Systems, tools, and practical AI</p>
 
     <nav class="sidebar-nav" aria-label="Sidebar navigation">
       <ul>
@@ -527,7 +632,48 @@
     </div>
   </aside>
 
+
   <header class="mobile-nav">
+    <div class="mobile-nav-header">
+      <img
+        class="mobile-profile-image"
+        src="./assets/profile.JPG"
+        alt="Portrait of Xiaojun Julie Huang"
+      />
+
+       <div class="mobile-identity">
+        <div class="mobile-brand">Xiaojun Huang</div>
+        <div class="mobile-tagline">Systems · Tools · Practical AI</div>
+      </div>
+        
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+
+    </div>
+
+  <nav class="mobile-nav-links" id="mobileMenu" aria-label="Mobile navigation">
+    <a class="mobile-link" href="#about">About</a>
+    <a class="mobile-link" href="#education">Education</a>
+    <a class="mobile-link" href="#projects">Projects</a>
+    <a class="mobile-link" href="#skills">Skills</a>
+    <a class="mobile-link" href="#interests">Interests</a>
+
+    <div class="mobile-social">
+      <a href="https://github.com/JulieHXJ" target="_blank" rel="noreferrer" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://de.linkedin.com/in/xhuang-91656623a" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="mailto:juliehxj@outlook.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </nav>
+</header>
+  <!-- <header class="mobile-nav">
     <div class="mobile-nav-header">
       <div class="mobile-brand">Xiaojun Huang</div>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
@@ -536,8 +682,8 @@
     </div>
     <nav class="mobile-nav-links" id="mobileMenu" aria-label="Mobile navigation">
       <a class="mobile-link" href="#about">About</a>
-      <!-- <a class="mobile-link" href="#experience">Experience</a> -->
-      <a class="mobile-link" href="#education">Education</a>
+      <a class="mobile-link" href="#experience">Experience</a>
+      <!-- <a class="mobile-link" href="#education">Education</a>
       <a class="mobile-link" href="#projects">Projects</a>
       <a class="mobile-link" href="#skills">Skills</a>
       <a class="mobile-link" href="#interests">Interests</a>
@@ -553,7 +699,7 @@
         </a>
       </div>
     </nav>
-  </header>
+  </header> --> 
 
   <main class="main">
     <div class="container">
@@ -826,6 +972,10 @@
     </div>
   </main>
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <script>
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
@@ -839,10 +989,35 @@
       menuBtn.setAttribute("aria-expanded", String(expanded));
     });
 
+    // mobileLinks.forEach((link) => {
+    //   link.addEventListener("click", () => {
+    //     mobileMenu.classList.remove("open");
+    //     menuBtn.setAttribute("aria-expanded", "false");
+    //   });
+    // });
+
     mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetId = link.getAttribute("href");
+        const targetEl = document.querySelector(targetId);
+
         mobileMenu.classList.remove("open");
         menuBtn.setAttribute("aria-expanded", "false");
+
+        const mobileHeader = document.querySelector(".mobile-nav");
+        const headerHeight = mobileHeader ? mobileHeader.offsetHeight : 0;
+
+        if (targetEl) {
+          const targetTop =
+            targetEl.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+
+          window.scrollTo({
+            top: targetTop,
+            behavior: "smooth",
+          });
+        }
       });
     });
 
@@ -864,6 +1039,26 @@
     );
 
     sections.forEach((section) => observer.observe(section));
+
+    const backToTopBtn = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+
+
   </script>
 </body>
 </html>

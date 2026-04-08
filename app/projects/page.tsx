@@ -2,8 +2,8 @@ export default function ProjectsPage() {
   return (
     <>
       <section className="hero-section">
-        <p className="eyebrow">Projects</p>
-        <h1 className="hero-title">Selected Work</h1>
+        {/* <p className="eyebrow">Projects</p> */}
+        <h1 className="hero-title">Selected Projects</h1>
         <p className="hero-text">
           My projects range from systems programming and rendering to practical AI
           tooling and structured problem solving. I enjoy building things that are

@@ -13,51 +13,55 @@ export default function AboutPage() {
         </div>
 
         <div className="about-hero-content">
-          <p className="eyebrow">About Me</p>
+          {/* <p className="eyebrow">About Me</p> */}
           <h1 className="hero-title">Xiaojun (Julie) Huang</h1>
           <p className="hero-text">
-            I’m a developer with a strong interest in backend
-            systems, infrastructure, software foundations, and practical AI tooling.
-            I enjoy building software that is structured, useful, and grounded in
-            real-world needs.
+            I’m an Information Systems student and software developer with a strong interest
+            in backend development, software foundations, infrastructure, and practical AI tools.
+            I enjoy building tools that are reliable, well-structured, and useful in real contexts.
           </p>
+
           <p className="hero-text">
-            My path into software has been shaped by both technical training and a long-standing
-            creative background in music. That combination continues to influence how I think:
-            with attention to structure, detail, clarity, and expression. I’m especially drawn
-            to work that connects rigorous problem solving with thoughtful design and real use.
+            Before moving into tech, I worked in international academic and cultural programs,
+            coordinating exchange projects, summer schools, and cross-border collaborations in China.
+            Through that work, I gained hands-on experience in communication, coordination, and turning ideas into execution.
+          </p>
+
+          <p className="hero-text">
+            Today, I bring that same mindset into software. I’m interested in technology that combines
+            rigorous problem solving with clarity, thoughtful design, and an understanding of how people actually work.
+            My background in music continues to shape the way I think about structure, detail, and expression.
           </p>
         </div>
       </section>
 
-      {/* <section>
-        <p className="section-title">Focus</p>
-        <div className="info-grid">
-          <article className="info-card">
-            <h3>Systems Thinking</h3>
-            <p>
-              I enjoy understanding how things work underneath the surface —
-              structure, logic, performance, and software foundations.
-            </p>
-          </article>
+      <section>
+        <p className="section-title">Work Experience</p>
 
-          <article className="info-card">
-            <h3>Backend-Oriented Development</h3>
-            <p>
-              I’m especially drawn to software that emphasizes reliability, clean
-              architecture, and meaningful data flow.
-            </p>
-          </article>
+        <article className="entry">
+          <h3>Shanghai Conservatory of Music | Project Coordinator, International Office</h3>
+          <p className="muted">
+            <span className="highlight">2020 - 2022</span> | Shanghai, China
+          </p>
+          <p>
+            Coordinated international exchange programs and short-term academic projects for overseas students
+            in collaboration with partner institutions. Managed communication, scheduling, and on-site support,
+            and worked across academic and administrative teams to ensure smooth program delivery.
+          </p>
+        </article>
 
-          <article className="info-card">
-            <h3>Practical AI</h3>
-            <p>
-              I’m interested in AI systems that support real workflows and solve
-              concrete problems in a thoughtful way.
-            </p>
-          </article>
-        </div>
-      </section> */}
+        <article className="entry">
+          <h3>Shanghai Conservatory of Music | Academic Program Assistant, Music Engineering Department</h3>
+          <p className="muted">
+            <span className="highlight">2017 - 2019</span> | Shanghai, China
+          </p>
+          <p>
+            Supported joint teaching programs with Berklee College of Music and assisted international professors
+            in lectures, workshops, and rehearsals. Contributed to the delivery of international academic events,
+            including ICMC and Electronic Music Week, in cross-cultural and bilingual environments.
+          </p>
+        </article>
+      </section>
 
       <section>
         <p className="section-title">Education</p>
@@ -68,11 +72,9 @@ export default function AboutPage() {
             <span className="highlight">2024 - Present</span> | Heilbronn, Germany
           </p>
           <p>
-            Received and maintained a full 15-month scholarship in recognition of
-            strong performance and sustained commitment.
-            <br />
-            Developed solid foundations in C and C++ through project-based learning,
-            peer review, teamwork, and independent problem solving.
+            Awarded and maintained a 15-month full scholarship based on performance and sustained commitment. <br />
+            Built strong foundations in C and C++ through intensive project-based learning, while developing
+            problem-solving, teamwork, peer review, and independent learning skills.
           </p>
         </article>
 
@@ -82,13 +84,11 @@ export default function AboutPage() {
           </h3>
           <p className="muted">
             <span className="highlight">2024 - Present</span> | Augsburg, Germany |
-            Grade 1.6/1.0
+            Current grade 1.6
           </p>
           <p>
-            Earned top grades (1.0) in Java Programming and Advanced Mathematics.
-            <br />
-            Studied SAP S/4HANA and core concepts of enterprise systems architecture.<br />
-            complement my technical practice with a broader perspective on information systems, business processes, and enterprise technology.
+            Achieved top grades (1.0) in Java Programming and Advanced Mathematics. <br />
+            Relevant coursework includes Business Process Management, Agile Development, and Enterprise System (SAP S/4HANA) Architecture Fundamentals.
           </p>
         </article>
 
@@ -132,7 +132,7 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section>
+      {/* <section>
         <p className="section-title">Music</p>
         <p className="hero-text">
             Music is still an active and important part of my life. Alongside
@@ -151,7 +151,7 @@ export default function AboutPage() {
             <span>Visit my SoundCloud</span>
             </a>
         </div>
-        </section>
+        </section> */}
     </>
   );
 }

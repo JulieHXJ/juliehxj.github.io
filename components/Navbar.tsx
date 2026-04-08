@@ -8,6 +8,7 @@ const navItems = [
   { href: "/about", label: "About Me" },
   { href: "/projects", label: "Projects" },
   { href: "/music", label: "Music" },
+  { href: "/gallery", label: "Gallery" }
 ];
 
 export default function Navbar() {

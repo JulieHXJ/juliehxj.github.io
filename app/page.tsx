@@ -13,14 +13,14 @@ export default function HomePage() {
         <p className="eyebrow">Personal Website</p>
         <h1 className="hero-title">Hi, I'm Julie</h1>
         <p className="hero-text">
-          a developer interested in backend systems, infrastructure, software foundations, and practical AI tooling.
+          A developer interested in backend systems, infrastructure, software foundations, and practical AI tooling.
         </p>
 
         <div className="page-actions">
-          <Link className="button-link" href="/projects">
+          {/* <Link className="button-link" href="/projects">
             View Projects
-          </Link>
-          <Link className="button-link secondary" href="/about">
+          </Link> */}
+          <Link className="button-link" href="/about">
             About Me
           </Link>
         </div>
@@ -87,11 +87,50 @@ export default function HomePage() {
           </article>
 
           <article className="info-card">
-            <h3>Purposeful Tools</h3>
+            <h3>Information Systems</h3>
             <p>
-              Building software that connects technical clarity with practical
-              value, usability, and thoughtful design.
+              Building a broader understanding of enterprise systems, business processes,
+              and how technical tools operate in real organizational contexts.
             </p>
+          </article>
+        </div>
+      </section>
+
+       <section>
+        <p className="section-title">Explore</p>
+
+        <div className="info-grid">
+          <article className="info-card">
+            <h3>Projects</h3>
+            <p>
+              Selected technical projects in software engineering, problem solving,
+              and practical tool building.
+            </p>
+            <Link className="text-link" href="/projects">
+              View projects →
+            </Link>
+          </article>
+
+          <article className="info-card">
+            <h3>Music</h3>
+            <p>
+              A separate space for my music background, professional experience,
+              creative practice, and selected listening.
+            </p>
+            <Link className="text-link" href="/music">
+              Visit music page →
+            </Link>
+          </article>
+
+          <article className="info-card">
+            <h3>Gallery</h3>
+            <p>
+              Selected photographs from music, work, and life, with small stories
+              behind the moments that matter.
+            </p>
+            <Link className="text-link" href="/gallery">
+              View gallery →
+            </Link>
           </article>
         </div>
       </section>
@@ -99,8 +138,8 @@ export default function HomePage() {
       <section id="contact">
         <p className="section-title">Contact</p>
         <p className="hero-text">
-          I’m open to internships, collaborations, and thoughtful conversations
-          around creative work across technology and music.
+          Open to internships, collaborations, and thoughtful conversations
+          around technology, music, and creative work.
         </p>
 
         <div className="contact-icons" aria-label="Contact links">

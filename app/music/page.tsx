@@ -126,14 +126,6 @@ export default function MusicPage() {
         </div>
       </section>
 
-      <section>
-        <p className="section-title">Gallery</p>
-        <p className="hero-text">
-          This page will gradually expand with performance photos, academic program
-          snapshots, collaborations with visiting professors, and selected moments
-          from my music-related work.
-        </p>
-      </section>
     </>
   );
 }

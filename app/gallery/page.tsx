@@ -6,13 +6,13 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 export default function GalleryPage() {
   const galleryItems = [
     {
-      src: "/assets/dog-me.jpg",
+      src: "/assets/dog-me.JPG",
       alt: "Portrait with dog",
       title: "A Quiet Companion",
       objectPosition: "center",
     },
     {
-      src: "/assets/IEMC.jpg",
+      src: "/assets/IEMC.JPG",
       alt: "The IEMC 2022 Flyer",
       title: "International Electronic Music Competition 2022",
       objectPosition: "40% 50%",
@@ -36,7 +36,7 @@ export default function GalleryPage() {
     //   objectPosition: "right center",
     // },
     {
-      src: "/assets/dive.jpg",
+      src: "/assets/dive.JPG",
       alt: "Diving into the ocean",
       title: "Out in Nature",
       objectPosition: "55% 0%",

@@ -28,9 +28,9 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link href="/#contact" className="topnav-link">
+          {/* <Link href="/#contact" className="topnav-link">
             Contact
-          </Link>
+          </Link> */}
         </nav>
 
         <div className="topbar-empty" aria-hidden="true" />

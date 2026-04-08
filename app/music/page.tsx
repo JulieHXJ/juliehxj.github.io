@@ -37,7 +37,7 @@ export default function MusicPage() {
         </section>
 
       <section>
-        <p className="section-title">Background</p>
+        <p className="section-title">Academic Background</p>
 
         <article className="entry">
           <h3>University of York | M.A. Music Production</h3>
@@ -45,8 +45,8 @@ export default function MusicPage() {
             <span className="highlight">2015 - 2017</span> | York, United Kingdom
           </p>
           <p>
-            Graduate study in music production with a focus on creative practice,
-            listening, sonic detail, and critical reflection.
+            Graduate study in music production with a focus on mastering, synthesis principles,
+            signal processing, and critical listening, combined with extensive recording studio practice.
           </p>
         </article>
 
@@ -56,14 +56,14 @@ export default function MusicPage() {
             <span className="highlight">2011 - 2015</span> | Shanghai, China
           </p>
           <p>
-            Undergraduate study in music technology, combining musical training with
-            technical approaches to sound, production, and digital media.
+            Undergraduate study in music technology, combining training in classical and popular
+            music composition, arrangement, music theory, music history, and mixing practice.
           </p>
         </article>
       </section>
 
       <section>
-        <p className="section-title">Selected Professional Work</p>
+        <p className="section-title">Professional Experience</p>
 
         <article className="entry">
           <h3>
@@ -82,6 +82,21 @@ export default function MusicPage() {
 
         <article className="entry">
           <h3>
+            Shanghai Computer Music Association | International Competition Support
+          </h3>
+          <p className="muted">
+            <span className="highlight">2019 - 2022</span> | Shanghai, China
+          </p>
+          <p>
+            Contributed to the planning, coordination, and delivery of an international computer
+            music competition. Supported multiple stages of the project, including event design,
+            implementation, and award ceremony organization, and also assisted the evaluation
+            process by helping judges review works more efficiently from a professional perspective.
+          </p>
+        </article>
+
+        <article className="entry">
+          <h3>
             Shanghai Conservatory of Music | Academic Program Assistant, Music Engineering Department
           </h3>
           <p className="muted">
@@ -94,7 +109,21 @@ export default function MusicPage() {
             ICMC and Electronic Music Week.
           </p>
         </article>
+
+        <article className="entry">
+          <h3>Shanghai Normal University | Guest Lecturer Support (Volunteer)</h3>
+          <p className="muted">
+            <span className="highlight">2017 - 2023</span> | Shanghai, China
+          </p>
+          <p>
+            Provided long-term interpretation support for guest lectures delivered
+            by visiting professors from UK institutions, including Bangor University and the
+            University of Leeds. Facilitated bilingual communication in cross-cultural academic
+            settings, supporting interaction between guest lecturers, faculty, and students.
+          </p>
+        </article>
       </section>
+
 
       <section>
         <p className="section-title">Areas of Practice</p>
